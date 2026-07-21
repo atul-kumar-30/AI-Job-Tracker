@@ -46,6 +46,7 @@ const LoginPage = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
+              autoComplete="email"
               className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all duration-300"
             />
           </div>
@@ -60,6 +61,7 @@ const LoginPage = () => {
               value={formData.password}
               onChange={handleChange}
               placeholder="Enter your password"
+              autoComplete="current-password"
               className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all duration-300"
             />
           </div>

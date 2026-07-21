@@ -6,6 +6,17 @@ import { registerUser } from "../services/authService";
 const RegisterPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const generateStrongPassword = () => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+    let generated = "";
+    for (let i = 0; i < 16; i++) {
+      generated += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setFormData({ ...formData, password: generated });
+    setShowPassword(true); // Automatically show the password so they can copy it
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,6 +57,7 @@ const RegisterPage = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
+              autoComplete="name"
               className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400/50 transition-all duration-300"
             />
           </div>
@@ -60,6 +72,7 @@ const RegisterPage = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
+              autoComplete="email"
               className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400/50 transition-all duration-300"
             />
           </div>
@@ -68,14 +81,33 @@ const RegisterPage = () => {
             <label className="block text-sm font-medium text-slate-300 ml-1">
               Password
             </label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Create password"
-              className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-500 outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400/50 transition-all duration-300"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Create password"
+                autoComplete="new-password"
+                className="w-full bg-slate-950/50 border border-white/10 rounded-xl px-5 py-3.5 pr-16 text-white placeholder:text-slate-500 outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400/50 transition-all duration-300"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-3.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+              >
+                {showPassword ? "HIDE" : "SHOW"}
+              </button>
+            </div>
+            <div className="flex justify-end mt-1 pr-1">
+              <button
+                type="button"
+                onClick={generateStrongPassword}
+                className="text-xs text-purple-400 hover:text-purple-300 font-medium transition-colors"
+              >
+                ✨ Suggest strong password
+              </button>
+            </div>
           </div>
 
           <button
