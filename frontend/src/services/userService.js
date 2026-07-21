@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://ai-job-tracker-backend-y025.onrender.com/api/users";
 
 // Helper to get token and format headers
 const getConfig = () => {

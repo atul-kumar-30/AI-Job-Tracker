@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/jobs";
+const API_URL = "https://ai-job-tracker-backend-y025.onrender.com/api/jobs";
 
 
 // GET TOKEN
