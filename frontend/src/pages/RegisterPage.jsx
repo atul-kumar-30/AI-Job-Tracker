@@ -8,7 +8,7 @@ const RegisterPage = () => {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
 
-  const generateStrongPassword = () => {
+  const generateStrongPassword = async () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
     let generated = "";
     for (let i = 0; i < 16; i++) {
@@ -16,6 +16,13 @@ const RegisterPage = () => {
     }
     setFormData({ ...formData, password: generated });
     setShowPassword(true); // Automatically show the password so they can copy it
+    
+    try {
+      await navigator.clipboard.writeText(generated);
+      alert("Strong password copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy password: ", err);
+    }
   };
 
   const handleChange = (e) => {

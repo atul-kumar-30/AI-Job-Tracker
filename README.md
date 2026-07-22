@@ -21,7 +21,7 @@ A full-stack, AI-powered application tracking system designed to streamline the 
 ---
 
 ## 🆕 Recent Updates
-* **Strong Password Generator:** Added a Google-style "Suggest strong password" button to the registration flow with automatic browser credential saving.
+* **Strong Password Generator:** Added a Google-style "Suggest strong password" button to the registration flow that automatically copies the generated password to your clipboard and supports browser credential saving.
 * **Profile Photo Uploads:** Added the ability to upload a custom profile picture (saved directly to MongoDB via base64 encoding).
 * **UI Bug Fix:** Fixed a critical bug in the original code where the Kanban board was missing the "Add Application" button, preventing users from adding jobs. The button is now fully functional!
 
@@ -73,35 +73,43 @@ The central hub for user data, driving the accuracy of the AI features.
    ```bash
    git clone https://github.com/atul-kumar-30/AI-Job-Tracker.git
    cd AI-Job-Tracker
+   ```
 
 2. **Install Backend Dependencies**
    ```bash
    cd backend
    npm install
+   ```
 
 3. **Install Frontend Dependencies**
    ```bash
    cd ../frontend
    npm install
+   ```
 
 4. **Environment Variables**
-   ```bash
-   Create a .env file in the /backend directory:
-
+   Create a `.env` file in the `/backend` directory:
+   ```env
    PORT=5000
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret
    GEMINI_API_KEY=your_google_ai_studio_key
+   ```
 
 5. **Boot the Application**
-   ```bash
    Open two separate terminals:
 
-   Terminal 1 (Backend):
-   cd backend && npm run dev
+   **Terminal 1 (Backend):**
+   ```bash
+   cd backend
+   npm run dev
+   ```
 
-   Terminal 2 (Frontend):
-   cd frontend && npm run dev
+   **Terminal 2 (Frontend):**
+   ```bash
+   cd frontend
+   npm run dev
+   ```
 
 
 ## 👨‍💻 About the Developer
