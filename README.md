@@ -21,6 +21,7 @@ A full-stack, AI-powered application tracking system designed to streamline the 
 ---
 
 ## 🆕 Recent Updates
+* **UX Improvements:** Added responsive loading states (spinners and disabled buttons) to the Login and Registration pages to gracefully handle delays caused by the free-tier backend's cold starts.
 * **Strong Password Generator:** Added a Google-style "Suggest strong password" button to the registration flow that automatically copies the generated password to your clipboard and supports browser credential saving.
 * **Profile Photo Uploads:** Added the ability to upload a custom profile picture (saved directly to MongoDB via base64 encoding).
 * **UI Bug Fix:** Fixed a critical bug in the original code where the Kanban board was missing the "Add Application" button, preventing users from adding jobs. The button is now fully functional!
